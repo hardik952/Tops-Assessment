@@ -12,6 +12,7 @@ class info{
         }
         int getchoice()
 		{
+		       // Select food from menu.
 			cout<<"\nWhat would you like to order?\n"<<endl;
 			cout<<"\t\t\t\t\t----------Menu---------\n"<<endl;
 			cout<<"1) Pizza    2) Burger    3) Sandwich    4) Rolls    5) Biryani"<<endl; 
@@ -27,26 +28,27 @@ class quantity:public info{
 		{
 			cout<<"\nPlease enter the choice: ";
 			cin>>num;
-		switch(num)
+		switch(num) // switch case for selelcted diffrert food
 			{
 		case 1:{
+			//  Different Pizzas 
 				cout<<"1. Margherita pizza   RS 300/-"<<endl;
 				cout<<"2. Chessy 7 pizza     RS 300/-"<<endl;
 				cout<<"3. Farm villa pizza   Rs 300/-"<<endl;
 				cout<<"\nSelect which Pizza you would like to order: ";
 				cin>>number;
-			if(number>=1 && number<=3)
+			if(number>=1 && number<=3) // If condition for get Qauntity
 			{
 				cout<<"Please Enter Quantity: ";
 				cin>>qty;
-			for(i=1;i<=qty;i++)
+			for(i=1;i<=qty;i++) 
 			{
 				total= qty*300;
 			}
     		}
 			else{
-				cout<<"Please Enter Correct Number.\nWould you like to start again y/n : "<<endl;
-				cin>>ans;
+				cout<<"Please Enter Correct Number.\nWould you like to start again y/n : "<<endl; // if you selected incorrect number
+ 				cin>>ans;
 					if(ans=='y')
 					{
 						getchoice();
@@ -166,7 +168,7 @@ class quantity:public info{
     }
     	int getbill()
     	{
-    		totalamt+=total;
+    		totalamt+=total; //total amount is for all total values
 			cout<<"\nTotal Amount is: "<<totalamt<<endl;
 			cout<<"\nWould you like to order anything else Y / N : ";
 			cin>>Ans;
