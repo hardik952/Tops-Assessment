@@ -1,0 +1,39 @@
+CREATE DATABASE computer;
+CREATE TABLE product(PRO_ID INT AUTOINCREMENT,PRO_NAME VARCHAR(100),PRO_PRICE FLOAT,PRO_COM INT);
+INSERT INTO product(PRO_NAME,PRO_PRICE,PRO_COM)
+            VALUES("Mother Board",3200.00,15),
+            ("Key Board",450.00,16),
+            ("Zip Drive",250.00,14),
+            ("Speaker",550.00,16),
+            ("Monitor",5000.00,11),
+            ("DVD Drive",900.00,12),
+            ("CD Drive",800.00,12),
+            ("Printer",2600.00,13),
+            ("Refill Cartridge",350.00,13),
+            ("Mouse",250.00,12);
+
+********************************************************QUERIES****************************************************************
+
+1) Write sql query to find the items whose prices are higher than or equal 250rs.
+   Order the result by product price in descending, then product name inascending. Return pro_name and pro_price 
+
+=> SELECT PRO_NAME,PRO_PRICE FROM product WHERE PRO_PRICE>=250 ORDER BY PRO_PRICE;
+=> SELECT PRO_NAME,PRO_PRICE FROM product WHERE PRO_PRICE>=250 ORDER BY PRO_NAME DESC;
+
+-------------------------------------------------------------------------------
+
+2) Write a sql query to find the cheapest item. Return pro_name and pro_price
+
+=> SELECT PRO_NAME,PRO_PRICE FROM product WHERE PRO_PRICE= (SELECT MIN(PRO_PRICE) FROM product);
+
+-------------------------------------------------------------------------------
+
+3) Write the sql query to calculate the average price of the items for each company. Return average price and company code.
+
+=> SELECT PRO_COM,AVG(PRO_PRICE) FROM product GROUP BY PRO_COM;
+
+-------------------------------------------------------------------------------
+
+4) Write the sql query to find the average total for all the product mention in the table.
+
+=> SELECT avg(PRO_PRICE) AS "Average Price" FROM product;
